@@ -27,6 +27,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             'cebe\\markdown\\' => 14,
         ),
+        'b' => 
+        array (
+            'bizley\\migration\\' => 17,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -69,6 +73,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'bizley\\migration\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bizley/migration/src',
         ),
         'Faker\\' => 
         array (

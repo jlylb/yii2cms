@@ -927,5 +927,51 @@
             "faker",
             "yii2"
         ]
+    },
+    {
+        "name": "bizley/migration",
+        "version": "1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bizley/yii2-migration.git",
+            "reference": "48054c12fa9d26fc4f846db2118c811dd76e2820"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/bizley/yii2-migration/48054c12fa9d26fc4f846db2118c811dd76e2820.zip",
+            "reference": "48054c12fa9d26fc4f846db2118c811dd76e2820",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "~2.0.0"
+        },
+        "time": "2016-07-18 11:33:21",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "bizley\\migration\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Pawel Bizley Brzozowski",
+                "email": "pawel@positive.codes"
+            }
+        ],
+        "description": "Migration generator for Yii 2.",
+        "keywords": [
+            "console",
+            "generator",
+            "migrate",
+            "migration",
+            "yii 2",
+            "yii2"
+        ]
     }
 ]

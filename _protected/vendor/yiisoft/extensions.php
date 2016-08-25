@@ -57,4 +57,13 @@ return array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker',
     ),
   ),
+  'bizley/migration' => 
+  array (
+    'name' => 'bizley/migration',
+    'version' => '1.0.5.0',
+    'alias' => 
+    array (
+      '@bizley/migration' => $vendorDir . '/bizley/migration/src',
+    ),
+  ),
 );
