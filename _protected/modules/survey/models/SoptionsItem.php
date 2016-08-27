@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\survey\models;
+namespace survey\models;
 
 use Yii;
 

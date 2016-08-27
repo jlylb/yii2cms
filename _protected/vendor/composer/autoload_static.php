@@ -22,9 +22,12 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
             'yii\\codeception\\' => 16,
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
+            'yii2mod\\enum\\' => 13,
         ),
         'c' => 
         array (
+            'conquer\\select2\\' => 16,
+            'conquer\\helpers\\' => 16,
             'cebe\\markdown\\' => 14,
         ),
         'b' => 
@@ -69,6 +72,18 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'yii2mod\\enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yii2mod/yii2-enum',
+        ),
+        'conquer\\select2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/conquer/select2',
+        ),
+        'conquer\\helpers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/conquer/helpers',
         ),
         'cebe\\markdown\\' => 
         array (

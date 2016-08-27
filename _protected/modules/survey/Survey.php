@@ -1,16 +1,15 @@
 <?php
 
-namespace backend\modules\survey;
+namespace survey;
 
-class Survey extends \backend\base\BaseModule
+class Survey extends \common\base\BaseModule
 {
-    public $controllerNamespace = 'backend\modules\survey\controllers';
+    public $controllerNamespace = 'survey\controllers';
     
     
     public function init()
     {
         parent::init();
 
-        // custom initialization code goes here
     }
 }

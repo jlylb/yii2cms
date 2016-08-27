@@ -2,10 +2,6 @@
 
 use yii\helpers\Html;
 
-/**
- * @var yii\web\View $this
- * @var backend\modules\survey\models\Stitle $model
- */
 
 $this->title = 'Create Stitle';
 $this->params['breadcrumbs'][] = ['label' => 'Stitles', 'url' => ['index']];

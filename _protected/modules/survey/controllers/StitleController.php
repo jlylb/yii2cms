@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\modules\survey\controllers;
+namespace survey\controllers;
 
 use Yii;
-use backend\modules\survey\models\Stitle;
-use backend\modules\survey\models\StitleSearch;
+use survey\models\Stitle;
+use survey\models\StitleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,9 +35,6 @@ class StitleController extends Controller
     {
         $searchModel = new StitleSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
-//                $model= new StitleSearch;
-//        $re=$model->searchOptions(6);
-//        print_r($re);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,

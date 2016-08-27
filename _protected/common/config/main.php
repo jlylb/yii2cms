@@ -16,5 +16,11 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'datetimeFormat'=>'php:Y-m-d H:i:s',
+            'dateFormat'=>'php:Y-m-d',
+            'timeFormat'=>'php:H:i:s',
+        ],
     ],
 ];

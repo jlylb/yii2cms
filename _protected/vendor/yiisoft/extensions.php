@@ -66,4 +66,31 @@ return array (
       '@bizley/migration' => $vendorDir . '/bizley/migration/src',
     ),
   ),
+  'yii2mod/yii2-enum' => 
+  array (
+    'name' => 'yii2mod/yii2-enum',
+    'version' => '1.4.0.0',
+    'alias' => 
+    array (
+      '@yii2mod/enum' => $vendorDir . '/yii2mod/yii2-enum',
+    ),
+  ),
+  'conquer/helpers' => 
+  array (
+    'name' => 'conquer/helpers',
+    'version' => '2.0.9.0',
+    'alias' => 
+    array (
+      '@conquer/helpers' => $vendorDir . '/conquer/helpers',
+    ),
+  ),
+  'conquer/select2' => 
+  array (
+    'name' => 'conquer/select2',
+    'version' => '1.4.3.0',
+    'alias' => 
+    array (
+      '@conquer/select2' => $vendorDir . '/conquer/select2',
+    ),
+  ),
 );

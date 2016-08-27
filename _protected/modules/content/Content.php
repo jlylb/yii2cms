@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\modules\content;
+namespace content;
 
-class Content extends \backend\base\BaseModule
+class Content extends \common\base\BaseModule
 {
-    public $controllerNamespace = 'backend\modules\content\controllers';
+    public $controllerNamespace = 'content\controllers';
 
     public function init()
     {

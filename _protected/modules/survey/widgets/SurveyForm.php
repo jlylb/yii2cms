@@ -5,7 +5,7 @@
  * Date: 2016/8/15
  * Time: 15:19
  */
-namespace backend\modules\survey\widgets;
+namespace survey\widgets;
 
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
@@ -13,7 +13,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\View;
 use yii\base\InvalidConfigException;
-use backend\modules\survey\models\StitleSearch;
+use survey\models\StitleSearch;
 use yii\widgets\ActiveForm; 
 use yii\helpers\Url;
 
@@ -42,10 +42,6 @@ class SurveyForm extends Widget{
         $model= new StitleSearch;
         $re=$model->searchOptions($this->surveyId);
         $this->registerJs();
-//        return $this->render('survey-form',[
-//            'content'=>$this->_formatQuestion($re),
-//            'formId'=>$this->formId,
-//        ]);
         echo $this->_formatQuestion($re);
         echo Html::tag('div', Html::submitButton('Create' , ['class' =>  'btn btn-success' ,'id'=>'btn-ok']), ['class'=>"form-group"]);
         ActiveForm::end();
@@ -80,6 +76,7 @@ class SurveyForm extends Widget{
         }
         return $html;
     }
+
     protected function registerJs() {
         $formId = $this->formId;
         $view=  $this->getView();

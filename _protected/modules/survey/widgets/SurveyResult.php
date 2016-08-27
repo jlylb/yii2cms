@@ -5,17 +5,17 @@
  * Date: 2016/8/15
  * Time: 15:19
  */
-namespace backend\modules\survey\widgets;
+namespace survey\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\base\InvalidConfigException;
-use backend\modules\survey\models\StitleSearch;
+use survey\models\StitleSearch;
 
 class SurveyResult extends Widget{
 
-    use \backend\modules\survey\widgets\SurveyTrait;
+    use \survey\widgets\SurveyTrait;
     
     public $surveyId;
     

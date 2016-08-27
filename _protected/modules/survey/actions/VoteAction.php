@@ -5,17 +5,17 @@
  * Date: 2016/8/15
  * Time: 16:30
  */
-namespace backend\modules\survey\actions;
+namespace survey\actions;
 
 use yii\base\Action;
 use yii;
-use backend\modules\survey\models\SoptionsItem;
+use survey\models\SoptionsItem;
 use yii\web\Response;
-use backend\modules\survey\models\StitleSearch;
+use survey\models\StitleSearch;
 
 class VoteAction extends  Action{
 
-    use \backend\modules\survey\widgets\SurveyTrait;
+    use \survey\widgets\SurveyTrait;
 
     public function run()
     {

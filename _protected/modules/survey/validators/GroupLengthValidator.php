@@ -5,7 +5,7 @@
  * Date: 2016/8/11
  * Time: 20:27
  */
-namespace backend\modules\survey\validators;
+namespace survey\validators;
 
 use Yii;
 use yii\base\InvalidConfigException;

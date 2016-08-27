@@ -1,11 +1,11 @@
 <?php
 
-namespace backend\modules\survey\controllers;
+namespace survey\controllers;
 
 use Yii;
-use backend\modules\survey\models\Soptions;
-use backend\modules\survey\models\Stitle;
-use backend\modules\survey\models\SoptionsSearch;
+use survey\models\Soptions;
+use survey\models\Stitle;
+use survey\models\SoptionsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

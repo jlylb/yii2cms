@@ -1,5 +1,5 @@
 <?php
-namespace backend\modules\survey\behaviors;
+namespace survey\behaviors;
 /**
  * Created by PhpStorm.
  * User: CPR061
@@ -10,7 +10,6 @@ namespace backend\modules\survey\behaviors;
 use yii\base\Behavior;
 use yii;
 use yii\db\ActiveRecord;
-//use backend\modules\survey\models\SoptionsItem;
 use yii\helpers\ArrayHelper;
 
 class ItemBehavior  extends Behavior{

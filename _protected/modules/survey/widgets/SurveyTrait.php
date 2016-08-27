@@ -5,7 +5,7 @@
  * Date: 2016/8/16
  * Time: 15:22
  */
-namespace backend\modules\survey\widgets;
+namespace survey\widgets;
 use yii\helpers\Html;
 
 Trait SurveyTrait{

@@ -1,11 +1,11 @@
 <?php
 
-namespace backend\modules\survey\models;
+namespace survey\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\modules\survey\models\Soptions;
+use survey\models\Soptions;
 
 /**
  * SoptionsSearch represents the model behind the search form about `backend\modules\survey\models\Soptions`.

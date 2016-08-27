@@ -18,7 +18,8 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "bizley/migration": "^1.0"
+        "bizley/migration": "^1.0",
+        "yii2mod/yii2-enum": "^1.4"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

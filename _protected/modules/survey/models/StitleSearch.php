@@ -1,11 +1,10 @@
 <?php
 
-namespace backend\modules\survey\models;
+namespace survey\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\modules\survey\models\Stitle;
 
 /**
  * StitleSearch represents the model behind the search form about `backend\modules\survey\models\Stitle`.
@@ -16,7 +15,7 @@ class StitleSearch extends Stitle
     {
         return [
             [['id', 'num', 'is_auth', 'is_status', 'uid'], 'integer'],
-            [['title', 'time'], 'safe'],
+            [['title', 'updated_at','created_at'], 'safe'],
         ];
     }
 
@@ -46,8 +45,8 @@ class StitleSearch extends Stitle
             'uid' => $this->uid,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'time', $this->time]);
+        $query->andFilterWhere(['like', 'title', $this->title]);
+            //->andFilterWhere(['like', 'time', $this->time]);
 
         return $dataProvider;
     }

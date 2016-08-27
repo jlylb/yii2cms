@@ -1,15 +1,14 @@
 <?php
 
-namespace backend\modules\content\controllers;
+namespace content\controllers;
 
-use common\models\base\Post;
-use common\models\search\PostSearch;
+use content\models\Post;
+use content\models\PostSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
-use dmstr\bootstrap\Tabs;
 
 /**
  * PostController implements the CRUD actions for Post model.

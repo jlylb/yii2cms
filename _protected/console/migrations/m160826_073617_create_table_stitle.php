@@ -17,7 +17,8 @@ class m160826_073617_create_table_stitle extends Migration
             'num' => $this->smallInteger(6)->notNull()->comment('问答数量'),
             'is_auth' => $this->smallInteger(1)->notNull()->defaultValue('0')->comment('是否审核'),
             'is_status' => $this->smallInteger(1)->notNull()->defaultValue('1')->comment('是否启问卷用'),
-            'time' => $this->string(11)->comment('问卷创建时间'),
+            'created_at' => $this->integer(11)->comment('问卷创建时间'),
+            'updated_at' => $this->integer(11)->comment('问卷更新时间'),
             'uid' => $this->smallInteger(11)->comment('问卷创建者'),
         ], $tableOptions);
         
