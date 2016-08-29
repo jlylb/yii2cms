@@ -17,6 +17,11 @@ class m160826_072529_create_table_tags extends Migration
             'frequency' => $this->integer(11)->defaultValue('0')->comment('文章统计数量'),
         ], $tableOptions);
         
+        $this->createTable('{{%post_tag}}', [
+            'tag_id' => $this->integer(11)->unsigned()->notNull()->comment('标签id'),
+            'post_id' => $this->integer(11)->unsigned()->notNull()->comment('文章id'),
+        ], $tableOptions);
+        
     }
     
     public function safeDown()
