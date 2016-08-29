@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
+use conquer\select2\Select2Action;
 
 /**
  * SoptionsController implements the CRUD actions for Soptions model.
@@ -33,9 +34,24 @@ class SoptionsController extends Controller
         return [
             'vote'=>[
                 'class'=>'backend\modules\survey\actions\VoteAction',
-            ]
+            ],
+            'ajax' => [
+                'class' => Select2Action::className(),
+                'dataCallback' => [$this, 'dataCallback'],
+            ],
         ];
     }
+
+    public function dataCallback($q)
+    {
+        $query = Stitle::find();
+        $query->andFilterWhere(['like', 'title', $q]);
+        $ret= $query->select(['id','title text'])->asArray()->all();
+        return [
+            'results' => $ret
+        ];
+    }
+
     /**
      * Lists all Soptions models.
      * @return mixed

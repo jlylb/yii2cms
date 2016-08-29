@@ -1,18 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-//use yii\widgets\DetailView;
-//use kartik\detail\DetailView;
-use backend\modules\survey\models\Stitle;
-use common\widget\DetailView;
-use backend\modules\survey\widgets\SurveyForm;
-use backend\modules\survey\widgets\SurveyResult;
+use yii\widgets\DetailView;
+use survey\widgets\SurveyForm;
+use survey\widgets\SurveyResult;
 use yii\helpers\Url;
-/* @var $this yii\web\View */
-/* @var $model backend\modules\survey\models\Soptions */
-//$title=Stitle::findOne(['id'=>$model->sid]);
-//Yii::trace($title->title);
-$arr = Yii::$app->params['showArr'];
+
+$arr = $model->getShowWay();
 $this->title = $model->op_title;
 $this->params['breadcrumbs'][] = ['label' => 'Soptions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -33,37 +27,22 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
         <?= DetailView::widget([
             'model' => $model,
-            'condensed'=>false,
-            'hover'=>true,
-            'mode'=> DetailView::MODE_VIEW,
-            'panel'=>[
-            'heading'=>$this->title,
-            'type'=>DetailView::TYPE_PRIMARY,
-        ],
-        'attributes' => [
-            'id',
-            [
-                'attribute'=>'sid',
-                'value'=>$model->stitle->title
-            ],
-            'op_title',
-            [
-                'label' =>'问卷选项',
-                'format'=>'raw',
-                'value'=>$model->sshow=='c'?
-                Html::checkboxList('title', null, \yii\helpers\ArrayHelper::getColumn($model->items,'title')?:[],['separator'=>'<br>']):
-                Html::radioList('title', null, \yii\helpers\ArrayHelper::getColumn($model->items,'title')?:[],['separator'=>'<br>']),
+            'attributes' => [
+                'id',
+                [
+                    'attribute'=>'sid',
+                    'value'=>$model->stitle->title
                 ],
-            'sshow'=>['attribute'=>'sshow','value'=>$arr[$model->sshow]],
-        ],
-        'deleteOptions'=>[
-        'url'=>['delete', 'id' => $model->id],
-        'data'=>[
-        'confirm'=>Yii::t('app', 'Are you sure you want to delete this item?'),
-        'method'=>'post',
-        ],
-        ],
-        'enableEditMode'=>false,
+                'op_title',
+                [
+                    'label' =>'问卷选项',
+                    'format'=>'raw',
+                    'value'=>$model->sshow=='c'?
+                    Html::checkboxList('title', null, \yii\helpers\ArrayHelper::getColumn($model->items,'title')?:[],['separator'=>'<br>']):
+                    Html::radioList('title', null, \yii\helpers\ArrayHelper::getColumn($model->items,'title')?:[],['separator'=>'<br>']),
+                    ],
+                'sshow'=>['attribute'=>'sshow','value'=>$arr[$model->sshow]],
+            ],
     ]) ?>
 
 </div>

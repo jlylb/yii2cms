@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\modules\survey\models\Soptions */
 
 $this->title = 'Update Soptions: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Soptions', 'url' => ['index']];

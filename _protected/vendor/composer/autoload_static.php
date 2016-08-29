@@ -24,6 +24,15 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
             'yii\\' => 4,
             'yii2mod\\enum\\' => 13,
         ),
+        'r' => 
+        array (
+            'rmrevin\\yii\\fontawesome\\' => 24,
+        ),
+        'k' => 
+        array (
+            'kartik\\select2\\' => 15,
+            'kartik\\base\\' => 12,
+        ),
         'c' => 
         array (
             'conquer\\select2\\' => 16,
@@ -76,6 +85,18 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'yii2mod\\enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/yii2mod/yii2-enum',
+        ),
+        'rmrevin\\yii\\fontawesome\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rmrevin/yii2-fontawesome',
+        ),
+        'kartik\\select2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
         'conquer\\select2\\' => 
         array (

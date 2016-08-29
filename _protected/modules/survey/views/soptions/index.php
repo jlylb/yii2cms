@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use kartik\select2\Select2;
+use conquer\select2\Select2Widget;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
@@ -34,7 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=> Select2::widget([
                     'name'=>'SoptionsSearch[sid]',
                     'initValueText'=> $searchModel->stitle?$searchModel->stitle->title:'',
-                    'value'=> Yii::$app->request->get('SoptionsSearch')?Yii::$app->request->get('SoptionsSearch')['sid']:'',
+                    'value'=> Yii::$app->request->get('SoptionsSearch')?Yii::$app->request->get('SoptionsSearch')
+                    ['sid']:'',
                     'language' => 'zh-cn',
                     'options' => ['placeholder' => '请选择一个问卷'],
                     'pluginOptions' => [
@@ -47,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                               results: data
                             };
                         }'),
-                        'data'=> new JsExpression('function (params) {
+                            'data'=> new JsExpression('function (params) {
                             var query = {
                               q: params.term,
                               page: params.page
