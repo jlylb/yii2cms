@@ -19,6 +19,19 @@ use Yii;
  */
 class Catalog extends \yii\db\ActiveRecord
 {
+    public function behaviors() {
+        return [
+            'timeAttr'=>[
+               'class' => 'yii\behaviors\TimestampBehavior',
+//              'createdAtAttribute' => 'create_time',
+//              'updatedAtAttribute' => 'update_time',
+              'value' => new \yii\db\Expression('NOW()'),
+               'attributes'=>[
+                    self::EVENT_BEFORE_INSERT=>'create_time',
+                ],
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */

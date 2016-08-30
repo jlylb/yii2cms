@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\fileupload\FileUpload;
+use content\models\Catalog;
 /* @var $this yii\web\View */
 /* @var $model content\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -19,7 +20,7 @@ use dosamigos\fileupload\FileUpload;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'catalog_link')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'catalog_link')->dropDownList(array_column(Catalog::find()->asArray()->all(),'catalog_name' ,'id'), ['prompt' => '请选择栏目']) ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 

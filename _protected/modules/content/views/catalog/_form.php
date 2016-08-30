@@ -12,7 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'pid')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'catalog_english')->textInput(['maxlength' => true]) ?>
 
@@ -21,8 +20,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'sort_num')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ], ['prompt' => '']) ?>
-
-    <?= $form->field($model, 'create_time')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
