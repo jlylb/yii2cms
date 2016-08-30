@@ -61,7 +61,7 @@ class Post extends \common\base\BaseModel
               'value' => new \yii\db\Expression('NOW()'),
             ],
             'fillAttr'=>[
-                'class' => 'common\behavior\AutoAttributeBehavior',
+                'class' => 'common\behaviors\AutoAttributeBehavior',
                 'attributes' => [
                         self::EVENT_BEFORE_INSERT => ['author'=>'11111'],
                     ]
@@ -140,7 +140,7 @@ class Post extends \common\base\BaseModel
      */
     public function getCatalogLink()
     {
-        return $this->hasOne(\common\models\base\Catalog::className(), ['id' => 'catalog_link']);
+        return $this->hasOne(Catalog::className(), ['id' => 'catalog_link']);
     }
     /**
      * @return \yii\db\ActiveQuery

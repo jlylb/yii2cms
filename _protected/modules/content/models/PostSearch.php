@@ -8,54 +8,57 @@ use yii\data\ActiveDataProvider;
 use content\models\Post;
 
 /**
-* PostSearch represents the model behind the search form about `common\models\base\Post`.
-*/
+ * PostSearch represents the model behind the search form about `content\models\Post`.
+ */
 class PostSearch extends Post
 {
-/**
-* @inheritdoc
-*/
-public function rules()
-{
-return [
-[['id', 'uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
-            [['title', 'intro', 'content', 'author', 'tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_from', 'copy_url', 'allow_comment', 'status', 'fisrt_img', 'attach', 'create_time', 'update_time'], 'safe'],
-];
-}
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['id', 'uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
+            [['title', 'intro', 'content', 'author', 'tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_from', 'copy_url', 'allow_comment', 'status', 'first_img', 'attach', 'create_time', 'update_time'], 'safe'],
+        ];
+    }
 
-/**
-* @inheritdoc
-*/
-public function scenarios()
-{
-// bypass scenarios() implementation in the parent class
-return Model::scenarios();
-}
+    /**
+     * @inheritdoc
+     */
+    public function scenarios()
+    {
+        // bypass scenarios() implementation in the parent class
+        return Model::scenarios();
+    }
 
-/**
-* Creates data provider instance with search query applied
-*
-* @param array $params
-*
-* @return ActiveDataProvider
-*/
-public function search($params)
-{
-$query = Post::find();
+    /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search($params)
+    {
+        $query = Post::find();
 
-$dataProvider = new ActiveDataProvider([
-'query' => $query,
-]);
+        // add conditions that should always apply here
 
-$this->load($params);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
 
-if (!$this->validate()) {
-// uncomment the following line if you do not want to any records when validation fails
-// $query->where('0=1');
-return $dataProvider;
-}
+        $this->load($params);
 
-$query->andFilterWhere([
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
             'id' => $this->id,
             'uid' => $this->uid,
             'catalog_link' => $this->catalog_link,
@@ -79,9 +82,9 @@ $query->andFilterWhere([
             ->andFilterWhere(['like', 'copy_url', $this->copy_url])
             ->andFilterWhere(['like', 'allow_comment', $this->allow_comment])
             ->andFilterWhere(['like', 'status', $this->status])
-            ->andFilterWhere(['like', 'fisrt_img', $this->fisrt_img])
+            ->andFilterWhere(['like', 'first_img', $this->first_img])
             ->andFilterWhere(['like', 'attach', $this->attach]);
 
-return $dataProvider;
-}
+        return $dataProvider;
+    }
 }

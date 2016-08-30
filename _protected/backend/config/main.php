@@ -16,7 +16,11 @@ return [
         'survey'=>[
             'class'=>'survey\Survey',
             'defaultRoute'=>'stitle/index',
-        ]
+        ],
+        'comment' => [
+            'class' => 'comments\Comment',
+            'defaultRoute'=>'default/index',
+        ],
     ],
     'components' => [
         'request' => [
