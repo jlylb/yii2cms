@@ -45,19 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Author'), 'class' => 'form-control'],
             ],
             [
-                'class' => EditableColumn::className(),
+//               'class' => EditableColumn::className(),
                 'attribute' => 'status',
-                'url' => ['edit-comment'],
+//                'url' => ['edit-comment'],
                 'value' => function ($model) {
                     return CommentStatus::getLabel($model->status);
                 },
-                'type' => 'select',
-                'editableOptions' => function ($model) {
-                    return [
-                        'source' => Json::encode(CommentStatus::listData()),
-                        'value' => $model->status,
-                    ];
-                },
+//                'type' => 'select',
+//                'editableOptions' => function ($model) {
+//                    return [
+//                        'source' => Json::encode(CommentStatus::listData()),
+//                        'value' => $model->status,
+//                    ];
+//                },
                 'filter' => CommentStatus::listData(),
                 'filterInputOptions' => ['prompt' => Yii::t('yii2mod.comments', 'Select Status'), 'class' => 'form-control'],
             ],

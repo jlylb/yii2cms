@@ -15,6 +15,7 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\imagine\\' => 12,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -32,6 +33,11 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             'kartik\\select2\\' => 15,
             'kartik\\base\\' => 12,
+        ),
+        'd' => 
+        array (
+            'dosamigos\\gallery\\' => 18,
+            'dosamigos\\fileupload\\' => 21,
         ),
         'c' => 
         array (
@@ -53,6 +59,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
+        ),
+        'yii\\imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-imagine',
         ),
         'yii\\gii\\' => 
         array (
@@ -98,6 +108,14 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
+        'dosamigos\\gallery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-gallery-widget/src',
+        ),
+        'dosamigos\\fileupload\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-file-upload-widget/src',
+        ),
         'conquer\\select2\\' => 
         array (
             0 => __DIR__ . '/..' . '/conquer/select2',
@@ -121,6 +139,13 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
     );
 
     public static $prefixesPsr0 = array (
+        'I' => 
+        array (
+            'Imagine' => 
+            array (
+                0 => __DIR__ . '/..' . '/imagine/imagine/lib',
+            ),
+        ),
         'H' => 
         array (
             'HTMLPurifier' => 

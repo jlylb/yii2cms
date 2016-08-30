@@ -8,5 +8,5 @@ Yii::setAlias('@core', dirname(dirname(__DIR__)) . '/modules');
 Yii::setAlias('@content', @core . '/content');
 Yii::setAlias('@survey', @core. '/survey');
 Yii::setAlias('@comments', @core . '/comments');#yii2mod\comments
-Yii::setAlias('@yii2mod/comments', @core . '/vendor/yii2mod/yii2-comments');
-Yii::setAlias('@yii2mod/behaviors', @core . '/vendor/yii2mod/yii2-behaviors');
+Yii::setAlias('@yii2mod/comments', dirname(dirname(__DIR__)). '/vendor/yii2mod/yii2-comments');
+Yii::setAlias('@yii2mod/behaviors', dirname(dirname(__DIR__)) . '/vendor/yii2mod/yii2-behaviors');

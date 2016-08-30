@@ -18,8 +18,8 @@ return [
             'defaultRoute'=>'stitle/index',
         ],
         'comment' => [
-            'class' => 'comments\Comment',
-            'defaultRoute'=>'default/index',
+            'class' => 'yii2mod\comments\Module',
+            'defaultRoute'=>'manage/index',
         ],
     ],
     'components' => [

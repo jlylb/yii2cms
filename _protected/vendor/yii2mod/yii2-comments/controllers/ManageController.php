@@ -9,7 +9,7 @@ use yii\web\NotFoundHttpException;
 use yii2mod\comments\models\CommentModel;
 use yii2mod\comments\models\CommentSearchModel;
 use yii2mod\comments\Module;
-use yii2mod\editable\EditableAction;
+//use yii2mod\editable\EditableAction;
 
 /**
  * Manage comments in admin panel
@@ -57,9 +57,9 @@ class ManageController extends Controller
     {
         return [
             'edit-comment' => [
-                'class' => EditableAction::className(),
-                'modelClass' => CommentModel::className(),
-                'forceCreate' => false
+//                'class' => EditableAction::className(),
+//                'modelClass' => CommentModel::className(),
+//                'forceCreate' => false
             ]
         ];
     }

@@ -21,7 +21,9 @@
         "bizley/migration": "^1.0",
         "yii2mod/yii2-enum": "^1.4",
         "kartik-v/yii2-widget-select2": "^2.0",
-        "rmrevin/yii2-fontawesome": "~2.15"
+        "rmrevin/yii2-fontawesome": "~2.15",
+        "yiisoft/yii2-imagine": "^2.0",
+        "2amigos/yii2-file-upload-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
