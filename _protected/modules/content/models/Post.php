@@ -87,7 +87,7 @@ class Post extends \common\base\BaseModel
             [['uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
             [['intro', 'content', 'allow_comment', 'status'], 'string'],
             [['create_time', 'update_time'], 'safe'],
-            [['title', 'copy_from', 'fisrt_img'], 'string', 'max' => 100],
+            [['title', 'copy_from', 'first_img'], 'string', 'max' => 100],
             [['author'], 'string', 'max' => 50],
             [['tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_url', 'attach'], 'string', 'max' => 255],
             ['allow_comment', 'in', 'range' => [
@@ -99,7 +99,8 @@ class Post extends \common\base\BaseModel
                     self::STATUS_Y,
                     self::STATUS_N,
                 ]
-            ]
+            ],
+            ['copy_url', 'url'],
         ];
     }
 
@@ -128,7 +129,7 @@ class Post extends \common\base\BaseModel
             'comment_num' => '评论数',
             'allow_comment' => '是否允许评论',
             'status' => '文章状态',
-            'fisrt_img' => '文章封面图',
+            'first_img' => '文章封面图',
             'attach' => '文章附件',
             'create_time' => '创建时间',
             'update_time' => '更新时间',

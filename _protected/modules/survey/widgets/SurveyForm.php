@@ -41,6 +41,10 @@ class SurveyForm extends Widget{
     {
         $model= new StitleSearch;
         $re=$model->searchOptions($this->surveyId);
+        if(!$re){
+           ActiveForm::end(); 
+           return;
+        }        
         $this->registerJs();
         echo $this->_formatQuestion($re);
         echo Html::tag('div', Html::submitButton('Create' , ['class' =>  'btn btn-success' ,'id'=>'btn-ok']), ['class'=>"form-group"]);

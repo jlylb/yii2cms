@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 <?= SurveyForm::widget([
-    'surveyId'=>6,
+    'surveyId'=>11,
     'formId'=>'form-options',
     'url'=>Url::to(['soptions/vote']),
 ])?>

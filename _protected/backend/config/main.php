@@ -21,6 +21,10 @@ return [
             'class' => 'yii2mod\comments\Module',
             'defaultRoute'=>'manage/index',
         ],
+        'content' => [
+            'class' => 'content\Content',
+            'defaultRoute'=>'post/index',
+        ],
     ],
     'components' => [
         'request' => [
