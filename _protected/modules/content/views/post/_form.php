@@ -45,27 +45,25 @@ use yii\helpers\Url;
 <!---->
 <!--    --><?//= $form->field($model, 'comment_num')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'allow_comment')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'allow_comment')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ]) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ]) ?>
 
+    <?= $form->field($model, 'tagValues')->textInput(['maxlength' => true]) ?>
 
     <?php
-//    echo \trntv\filekit\widget\Upload::widget([
-//        'model' => $model,
-//        'attribute' => 'thumbnail',
-//        'url' => ['post/upload'],
-//        'sortable' => true,
-//        'maxFileSize' => 10 * 1024 * 1024,
-//        'minFileSize' => 1 * 1024 * 1024,
-//        'maxNumberOfFiles' => 3,
-//        'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
-//    ]);
-        echo \trntv\filekit\widget\Upload::widget([
-            'model' => $model,
-            'attribute' => 'thumbnail',
+    echo $form->field($model, 'attachments')
+        ->widget('trntv\filekit\widget\Upload',[
+            'maxFileSize' => 10 * 1024 * 1024,
+            'maxNumberOfFiles' => 3,
+            'multiple'=>'true',
             'url' => ['post/upload'],
-            'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
+            'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),  
+        ]);
+    echo $form->field($model, 'thumbnail')
+        ->widget('trntv\filekit\widget\Upload',[
+            'url' => ['post/upload'],
+            'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),  
         ]);
     ?>
     <div class="form-group">

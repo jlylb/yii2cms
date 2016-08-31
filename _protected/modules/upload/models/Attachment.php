@@ -19,6 +19,16 @@ use Yii;
  */
 class Attachment extends \yii\db\ActiveRecord
 {
+        public function behaviors() {
+        return [
+            'timeAttr'=>[
+               'class' => 'yii\behaviors\TimestampBehavior',
+               'attributes' => [
+                    self::EVENT_BEFORE_INSERT => 'created_at',
+               ]
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */

@@ -3,35 +3,17 @@
 namespace content\controllers;
 
 use Yii;
-use content\models\Post;
-use content\models\PostSearch;
+use content\models\Tags;
+use content\models\TagsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\Response;
 
 /**
- * PostController implements the CRUD actions for Post model.
+ * TagsController implements the CRUD actions for Tags model.
  */
-class PostController extends Controller
+class TagsController extends Controller
 {
-
-    public function actions(){
-        return [
-            'upload'=>[
-                'class'=>'trntv\filekit\actions\UploadAction',
-                'multiple' => true,
-                'disableCsrf' => true,
-                'deleteRoute' => 'file-delete',
-                'fileStorage' => 'fileStorage',
-                'fileStorageParam' => 'fileStorage',
-                'sessionKey' => '_uploadedFiles',
-           ],
-            'file-delete'=>[
-                'class'=>'trntv\filekit\actions\DeleteAction',
-            ]
-       ];
-}
     /**
      * @inheritdoc
      */
@@ -48,12 +30,12 @@ class PostController extends Controller
     }
 
     /**
-     * Lists all Post models.
+     * Lists all Tags models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PostSearch();
+        $searchModel = new TagsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -63,7 +45,7 @@ class PostController extends Controller
     }
 
     /**
-     * Displays a single Post model.
+     * Displays a single Tags model.
      * @param string $id
      * @return mixed
      */
@@ -75,13 +57,13 @@ class PostController extends Controller
     }
 
     /**
-     * Creates a new Post model.
+     * Creates a new Tags model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Post();
+        $model = new Tags();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -93,7 +75,7 @@ class PostController extends Controller
     }
 
     /**
-     * Updates an existing Post model.
+     * Updates an existing Tags model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -112,7 +94,7 @@ class PostController extends Controller
     }
 
     /**
-     * Deletes an existing Post model.
+     * Deletes an existing Tags model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -125,15 +107,15 @@ class PostController extends Controller
     }
 
     /**
-     * Finds the Post model based on its primary key value.
+     * Finds the Tags model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Post the loaded model
+     * @return Tags the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Post::findOne($id)) !== null) {
+        if (($model = Tags::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

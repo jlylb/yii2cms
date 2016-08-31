@@ -289,10 +289,11 @@ class UploadBehavior extends Behavior
             $model = new $modelClass;
             $model->setScenario($this->uploadModelScenario);
             $model = $this->loadModel($model, $file);
+            $model->entity_model=ltrim(get_class($this->owner),"\\");
             if ($this->getUploadRelation()->via !== null) {
                 $model->save(false);
             }
-            $this->owner->link($this->uploadRelation, $model,['entity_model'=>ltrim(get_class($this->owner),"\\")]);
+            $this->owner->link($this->uploadRelation, $model);
         }
     }
 

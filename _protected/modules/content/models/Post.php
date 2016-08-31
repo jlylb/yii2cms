@@ -4,7 +4,7 @@ namespace content\models;
 
 use Yii;
 use upload\models\Attachment;
-use creocoder\taggable\TaggableQueryBehavior;
+use creocoder\taggable\TaggableBehavior;
 
 class Post extends \common\base\BaseModel
 {
@@ -48,6 +48,12 @@ class Post extends \common\base\BaseModel
                 'multiple' => true,
                 'attribute' => 'attachments',
                 'uploadRelation' => 'uploadedFiles',
+                'pathAttribute' => 'path',
+                'baseUrlAttribute' => 'base_url',
+                'typeAttribute' => 'type',
+                'sizeAttribute' => 'size',
+                'nameAttribute' => 'name',
+                'orderAttribute' => 'order'
             ],
             'image' => [
                 'class' => 'trntv\filekit\behaviors\UploadBehavior',
@@ -55,7 +61,10 @@ class Post extends \common\base\BaseModel
                 'pathAttribute' => 'thumb_path',
                 'baseUrlAttribute' => 'thumb_base_url',
           ],
-            TaggableQueryBehavior::className(),
+          'taggable' => [
+                'class' => TaggableBehavior::className(),
+                'tagRelation' => 'tag',
+          ],
         ];
     }
 
@@ -79,7 +88,7 @@ class Post extends \common\base\BaseModel
             [['create_time', 'update_time'], 'safe'],
             [['title', 'copy_from'], 'string', 'max' => 100],
             [['author'], 'string', 'max' => 50],
-            [['tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_url', 'thumb_path', 'thumb_base_url'], 'string', 'max' => 255],
+            [[ 'seo_title', 'seo_keywords', 'seo_desc', 'copy_url', 'thumb_path', 'thumb_base_url'], 'string', 'max' => 255],
             ['allow_comment', 'in', 'range' => [
                     self::ALLOW_COMMENT_Y,
                     self::ALLOW_COMMENT_N,
@@ -91,7 +100,7 @@ class Post extends \common\base\BaseModel
                 ]
             ],
             ['copy_url', 'url'],
-            [['attachments', 'thumbnail'], 'safe']
+            [['attachments', 'thumbnail','tagValues'], 'safe']
         ];
     }
 
@@ -108,7 +117,6 @@ class Post extends \common\base\BaseModel
             'content' => '内容',
             'catalog_link' => '所属栏目',
             'author' => '文章作者',
-            'tags' => '文章标签',
             'seo_title' => 'SEO标题',
             'seo_keywords' => 'SEO关键字',
             'seo_desc' => 'SEO描述',
@@ -124,6 +132,7 @@ class Post extends \common\base\BaseModel
             'attachments' => '文章附件',
             'create_time' => '创建时间',
             'update_time' => '更新时间',
+            'tagValues' => '文章标签',
         ];
     }
 
@@ -202,7 +211,7 @@ class Post extends \common\base\BaseModel
             "entity_model" => ltrim(get_class($this),"\\"),
         ]);
     }
-    public function getTags()
+    public function getTag()
     {
         return $this->hasMany(Tags::className(), ['id' => 'tag_id'])
             ->viaTable('{{%post_tag}}', ['post_id' => 'id']);
