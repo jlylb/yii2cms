@@ -147,4 +147,31 @@ return array (
       '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
     ),
   ),
+  'yiisoft/yii2-jui' => 
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '2.0.6.0',
+    'alias' => 
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
+  'trntv/yii2-file-kit' => 
+  array (
+    'name' => 'trntv/yii2-file-kit',
+    'version' => '1.1.8.0',
+    'alias' => 
+    array (
+      '@trntv/filekit' => $vendorDir . '/trntv/yii2-file-kit/src',
+    ),
+  ),
+  'creocoder/yii2-taggable' => 
+  array (
+    'name' => 'creocoder/yii2-taggable',
+    'version' => '2.0.0.0',
+    'alias' => 
+    array (
+      '@creocoder/taggable' => $vendorDir . '/creocoder/yii2-taggable/src',
+    ),
+  ),
 );

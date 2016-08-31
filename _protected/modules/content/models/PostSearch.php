@@ -19,7 +19,7 @@ class PostSearch extends Post
     {
         return [
             [['id', 'uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
-            [['title', 'intro', 'content', 'author', 'tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_from', 'copy_url', 'allow_comment', 'status', 'first_img', 'attach', 'create_time', 'update_time'], 'safe'],
+            [['title', 'intro', 'content', 'author', 'tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_from', 'copy_url', 'allow_comment', 'status', 'create_time', 'update_time'], 'safe'],
         ];
     }
 
@@ -81,9 +81,7 @@ class PostSearch extends Post
             ->andFilterWhere(['like', 'copy_from', $this->copy_from])
             ->andFilterWhere(['like', 'copy_url', $this->copy_url])
             ->andFilterWhere(['like', 'allow_comment', $this->allow_comment])
-            ->andFilterWhere(['like', 'status', $this->status])
-            ->andFilterWhere(['like', 'first_img', $this->first_img])
-            ->andFilterWhere(['like', 'attach', $this->attach]);
+            ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }

@@ -3,36 +3,9 @@
 namespace content\models;
 
 use Yii;
+use upload\models\Attachment;
+use creocoder\taggable\TaggableQueryBehavior;
 
-/**
- * This is the base-model class for table "tie_post".
- *
- * @property string $id
- * @property string $uid
- * @property string $title
- * @property string $intro
- * @property string $content
- * @property string $catalog_link
- * @property string $author
- * @property string $tags
- * @property string $seo_title
- * @property string $seo_keywords
- * @property string $seo_desc
- * @property string $copy_from
- * @property string $copy_url
- * @property string $view_num
- * @property string $favorite_num
- * @property string $focus_num
- * @property string $comment_num
- * @property string $allow_comment
- * @property string $status
- * @property string $fisrt_img
- * @property string $attach
- * @property string $create_time
- * @property string $update_time
- *
- * @property \common\models\Catalog $catalogLink
- */
 class Post extends \common\base\BaseModel
 {
 
@@ -45,6 +18,10 @@ class Post extends \common\base\BaseModel
     const STATUS_N = 'N';
     
     var $enum_labels = false;
+
+    public $attachments;
+
+    public $thumbnail;
     
     public function behaviors() {
         return [
@@ -63,9 +40,22 @@ class Post extends \common\base\BaseModel
             'fillAttr'=>[
                 'class' => 'common\behaviors\AutoAttributeBehavior',
                 'attributes' => [
-                        self::EVENT_BEFORE_INSERT => ['author'=>'11111'],
-                    ]
+                     self::EVENT_BEFORE_INSERT => ['author'=>'11111'],
+                ]
             ],
+            'file' => [
+                'class' => 'trntv\filekit\behaviors\UploadBehavior',
+                'multiple' => true,
+                'attribute' => 'attachments',
+                'uploadRelation' => 'uploadedFiles',
+            ],
+            'image' => [
+                'class' => 'trntv\filekit\behaviors\UploadBehavior',
+                'attribute' => 'thumbnail',
+                'pathAttribute' => 'thumb_path',
+                'baseUrlAttribute' => 'thumb_base_url',
+          ],
+            TaggableQueryBehavior::className(),
         ];
     }
 
@@ -87,9 +77,9 @@ class Post extends \common\base\BaseModel
             [['uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
             [['intro', 'content', 'allow_comment', 'status'], 'string'],
             [['create_time', 'update_time'], 'safe'],
-            [['title', 'copy_from', 'first_img'], 'string', 'max' => 100],
+            [['title', 'copy_from'], 'string', 'max' => 100],
             [['author'], 'string', 'max' => 50],
-            [['tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_url', 'attach'], 'string', 'max' => 255],
+            [['tags', 'seo_title', 'seo_keywords', 'seo_desc', 'copy_url', 'thumb_path', 'thumb_base_url'], 'string', 'max' => 255],
             ['allow_comment', 'in', 'range' => [
                     self::ALLOW_COMMENT_Y,
                     self::ALLOW_COMMENT_N,
@@ -101,6 +91,7 @@ class Post extends \common\base\BaseModel
                 ]
             ],
             ['copy_url', 'url'],
+            [['attachments', 'thumbnail'], 'safe']
         ];
     }
 
@@ -129,8 +120,8 @@ class Post extends \common\base\BaseModel
             'comment_num' => '评论数',
             'allow_comment' => '是否允许评论',
             'status' => '文章状态',
-            'first_img' => '文章封面图',
-            'attach' => '文章附件',
+            'thumbnail' => '文章封面图',
+            'attachments' => '文章附件',
             'create_time' => '创建时间',
             'update_time' => '更新时间',
         ];
@@ -203,5 +194,17 @@ class Post extends \common\base\BaseModel
         
         ];
     }
-    
+
+    public function getUploadedFiles()
+    {
+        return $this->hasMany(Attachment::className(),['entity_id'=>'id'])
+        ->where([
+            "entity_model" => ltrim(get_class($this),"\\"),
+        ]);
+    }
+    public function getTags()
+    {
+        return $this->hasMany(Tags::className(), ['id' => 'tag_id'])
+            ->viaTable('{{%post_tag}}', ['post_id' => 'id']);
+    }
 }

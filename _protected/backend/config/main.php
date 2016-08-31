@@ -25,6 +25,10 @@ return [
             'class' => 'content\Content',
             'defaultRoute'=>'post/index',
         ],
+        'upload' => [
+            'class' => 'upload\Upload',
+            'defaultRoute'=>'attachment/index',
+        ],
     ],
     'components' => [
         'request' => [

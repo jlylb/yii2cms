@@ -7,6 +7,7 @@ $baseDir = dirname(dirname($vendorDir));
 
 return array(
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
+    'yii\\jui\\' => array($vendorDir . '/yiisoft/yii2-jui'),
     'yii\\imagine\\' => array($vendorDir . '/yiisoft/yii2-imagine'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
@@ -16,14 +17,17 @@ return array(
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'yii2mod\\enum\\' => array($vendorDir . '/yii2mod/yii2-enum'),
+    'trntv\\filekit\\' => array($vendorDir . '/trntv/yii2-file-kit/src'),
     'rmrevin\\yii\\fontawesome\\' => array($vendorDir . '/rmrevin/yii2-fontawesome'),
     'kartik\\select2\\' => array($vendorDir . '/kartik-v/yii2-widget-select2'),
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
     'dosamigos\\gallery\\' => array($vendorDir . '/2amigos/yii2-gallery-widget/src'),
     'dosamigos\\fileupload\\' => array($vendorDir . '/2amigos/yii2-file-upload-widget/src'),
+    'creocoder\\taggable\\' => array($vendorDir . '/creocoder/yii2-taggable/src'),
     'conquer\\select2\\' => array($vendorDir . '/conquer/select2'),
     'conquer\\helpers\\' => array($vendorDir . '/conquer/helpers'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'bizley\\migration\\' => array($vendorDir . '/bizley/migration/src'),
+    'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
 );

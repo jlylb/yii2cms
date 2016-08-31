@@ -8,12 +8,45 @@ use content\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * PostController implements the CRUD actions for Post model.
  */
 class PostController extends Controller
 {
+
+    public function actions(){
+        return [
+            'upload'=>[
+                'class'=>'trntv\filekit\actions\UploadAction',
+                'deleteRoute'=>'file-delete',
+                'multiple' => true,
+                'disableCsrf' => true,
+                'responseFormat' => Response::FORMAT_JSON,
+                'responsePathParam' => 'path',
+                'responseBaseUrlParam' => 'base_url',
+                'responseUrlParam' => 'url',
+                'responseDeleteUrlParam' => 'delete_url',
+                'responseMimeTypeParam' => 'type',
+                'responseNameParam' => 'name',
+                'responseSizeParam' => 'size',
+                'deleteRoute' => 'delete',
+                'fileStorage' => 'fileStorage',
+                'fileStorageParam' => 'fileStorage',
+                'sessionKey' => '_uploadedFiles',
+                'allowChangeFilestorage' => false,
+                'validationRules' => [
+               ],
+               'on afterSave' => function($event) {
+
+               }
+           ],
+            'file-delete'=>[
+                'class'=>'trntv\filekit\actions\DeleteAction',
+            ]
+       ];
+}
     /**
      * @inheritdoc
      */

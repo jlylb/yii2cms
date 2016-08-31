@@ -15,6 +15,7 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\jui\\' => 8,
             'yii\\imagine\\' => 12,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
@@ -24,6 +25,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
             'yii2mod\\enum\\' => 13,
+        ),
+        't' => 
+        array (
+            'trntv\\filekit\\' => 14,
         ),
         'r' => 
         array (
@@ -41,6 +46,7 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         ),
         'c' => 
         array (
+            'creocoder\\taggable\\' => 19,
             'conquer\\select2\\' => 16,
             'conquer\\helpers\\' => 16,
             'cebe\\markdown\\' => 14,
@@ -48,6 +54,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'b' => 
         array (
             'bizley\\migration\\' => 17,
+        ),
+        'L' => 
+        array (
+            'League\\Flysystem\\' => 17,
         ),
         'F' => 
         array (
@@ -59,6 +69,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
+        ),
+        'yii\\jui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
         ),
         'yii\\imagine\\' => 
         array (
@@ -96,6 +110,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             0 => __DIR__ . '/..' . '/yii2mod/yii2-enum',
         ),
+        'trntv\\filekit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/trntv/yii2-file-kit/src',
+        ),
         'rmrevin\\yii\\fontawesome\\' => 
         array (
             0 => __DIR__ . '/..' . '/rmrevin/yii2-fontawesome',
@@ -116,6 +134,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-file-upload-widget/src',
         ),
+        'creocoder\\taggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/creocoder/yii2-taggable/src',
+        ),
         'conquer\\select2\\' => 
         array (
             0 => __DIR__ . '/..' . '/conquer/select2',
@@ -131,6 +153,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'bizley\\migration\\' => 
         array (
             0 => __DIR__ . '/..' . '/bizley/migration/src',
+        ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
         'Faker\\' => 
         array (
