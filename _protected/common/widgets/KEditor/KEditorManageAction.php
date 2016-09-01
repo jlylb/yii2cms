@@ -2,7 +2,6 @@
 namespace common\widgets\KEditor;
 
 use yii\helpers\Json;
-use common\widget\KEditor\KEditor;
 use yii\base\Action;
 
 class KEditorManageAction extends Action{
@@ -40,7 +39,7 @@ class KEditorManageAction extends Action{
 			$current_dir_path = $_GET['path'];
 			$moveup_dir_path = preg_replace('/(.*?)[^\/]+\/$/', '$1', $current_dir_path);
 		}
-		echo realpath($root_path);
+		//echo realpath($root_path);
 		//排序形式，name or size or type
 		$order = empty($_GET['order']) ? 'name' : strtolower($_GET['order']);
 		

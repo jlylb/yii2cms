@@ -1,0 +1,19 @@
+a.asc:before {
+  content: '\e72f';
+}
+a.desc:before {
+  content: '\e730';
+}
+a.asc,
+a.desc {
+  font-family: ZenIcon;
+  speak: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

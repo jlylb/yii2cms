@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 
 class KEditorAsset  extends AssetBundle
 {
-    public $sourcePath = '@common/widget/KEditor';
+    public $sourcePath = '@common/widgets/KEditor';
 //    public $basePath = '@webroot';
 //    public $baseUrl = '@themes';
     

@@ -27,6 +27,7 @@ class KEditor extends \yii\widgets\InputWidget {
 					}',
         'afterBlur'=>'function() {
                 this.sync();
+                jQuery("#$this->id").trigger("blur");
             }',
         ];
     /*
@@ -39,7 +40,7 @@ class KEditor extends \yii\widgets\InputWidget {
     public static function getUploadPath() {
         $path=Yii::getAlias('@webroot').DIRECTORY_SEPARATOR.'data';
         if (isset(Yii::$app->params->uploadPath)) {
-            $path=$path.DIRECTORY_SEPARATOR.Yii::$app->params->uploadPath; 
+            $path=$path.DIRECTORY_SEPARATOR.Yii::$app->params->uploadPath;
         }
         return $path;
     }
@@ -138,6 +139,7 @@ class KEditor extends \yii\widgets\InputWidget {
             'formatUploadUrl',
             'fullscreenShortcut',
             'extraFileUploadParams',
+            'loadStyleMode'
         );
 
         //准备返回的属性数组
@@ -149,15 +151,20 @@ class KEditor extends \yii\widgets\InputWidget {
         if(!isset($params['items'])||empty($params['items'])){
             $params['items']=  $this->_defaultItems;
         }
-        $this->_formatActions();
-        $params=ArrayHelper::merge($this->_defaultActions, $params);
+        $params=ArrayHelper::merge($this->_formatActions(), $params);
         return $params;
     }
     //
     private function _formatActions() {
-        foreach ($this->_defaultActions as  &$v) {
-            $v=new JsExpression($v);
-        }
+        return [
+            'afterCreate'=>new JsExpression('function() {
+                        this.sync();
+					}'),
+            'afterBlur'=>new JsExpression('function() {
+                this.sync();
+                jQuery("#'.$this->id.'").trigger("blur");
+            }'),
+        ];
     }
     /**
      * Register client assets
@@ -166,6 +173,8 @@ class KEditor extends \yii\widgets\InputWidget {
     {
         $view = $this->getView();
         KEditorAsset::register($view);
+        $theme=$this->properties['themeType']?:'default';
+        $view->registerCssFile(__DIR__.'/js/themes/'.$theme.'/'.$theme.'.css');
         $properties_string = Json::encode($this->getKeProperties());
         $id=  Inflector::id2camel($this->id);
         $js = <<<EOF

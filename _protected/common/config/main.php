@@ -28,6 +28,13 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@yii2mod/comments/messages',
                 ],
+                'filekit/widget' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
+                    'fileMap'=>[
+                        'filekit/widget'=>'widget.php'
+                    ],
+                ],
             ],
         ],
         'fileStorage' => [

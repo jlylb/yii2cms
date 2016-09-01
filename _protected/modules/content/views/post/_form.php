@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\web\JsExpression;
 use content\models\Catalog;
 use yii\helpers\Url;
+use common\widgets\KEditor\KEditor;
 /* @var $this yii\web\View */
 /* @var $model content\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -19,7 +20,18 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'intro')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(KEditor::className(),[
+        'properties' => array(
+            'themeType' => 'default',
+            'loadStyleMode'=>false,
+            'uploadJson' => yii\helpers\Url::toRoute('editor-upload'),
+            'fileManagerJson' => yii\helpers\Url::toRoute('editor-manage'),
+            'newlineTag' => 'br',
+            'allowFileManager' => true,
+            'width'=>'100%',
+            'height'=>'350px',
+        ),
+    ]) ?>
 
     <?= $form->field($model, 'catalog_link')->dropDownList(array_column(Catalog::find()->asArray()->all(),'catalog_name' ,'id'), ['prompt' => '请选择栏目']) ?>
 

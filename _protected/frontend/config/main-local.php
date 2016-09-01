@@ -6,6 +6,34 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'STajU_abO2tSsQEvNj2KJpCW5qox9v6u',
         ],
+        'assetManager' => [
+            'bundles' => [
+                // use bootstrap css from CDN
+//                 'yii\bootstrap\BootstrapAsset' => [
+//                     'basePath' => '@webroot',   // do not use file from our server
+//                     'baseUrl' => '@web/themes/zui',
+//                     'css' => [
+//                         'css/zui.min.css',
+//                         ]
+//                 ],
+                // use bootstrap js from CDN
+//                 'yii\bootstrap\BootstrapPluginAsset' => [
+//                     'basePath' => '@webroot',
+//                     'baseUrl' =>  '@web/themes/zui',   // do not use file from our server
+//                     'js' => [
+//                         'js/zui.js'
+//                         ]
+//                 ],
+                // use jquery from CDN
+                'yii\web\JqueryAsset' => [
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web/themes/zui',   // do not use file from our server
+                    'js' => [
+                        'lib/jquery/jquery.js',
+                    ]
+                ],
+            ],
+        ],
     ],
 ];
 

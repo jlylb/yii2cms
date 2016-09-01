@@ -29,7 +29,13 @@ class PostController extends Controller
            ],
             'file-delete'=>[
                 'class'=>'trntv\filekit\actions\DeleteAction',
-            ]
+            ],
+            'editor-upload'=>[
+                'class'=>'common\widgets\KEditor\KEditorUploadAction',
+            ],
+            'editor-manage'=>[
+                'class'=>'common\widgets\KEditor\KEditorManageAction',
+            ],
        ];
 }
     /**
