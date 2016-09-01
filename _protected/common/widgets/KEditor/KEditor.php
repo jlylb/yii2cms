@@ -174,7 +174,10 @@ class KEditor extends \yii\widgets\InputWidget {
         $view = $this->getView();
         KEditorAsset::register($view);
         $theme=$this->properties['themeType']?:'default';
-        $view->registerCssFile(__DIR__.'/js/themes/'.$theme.'/'.$theme.'.css');
+        $url=$view->getAssetManager()->publish('@common/widgets/KEditor');
+        $view->registerCssFile($url[1].'/js/themes/'.$theme.'/'.$theme.'.css',[
+            'depends'=>'common\widgets\KEditor\KEditorAsset'
+        ]);
         $properties_string = Json::encode($this->getKeProperties());
         $id=  Inflector::id2camel($this->id);
         $js = <<<EOF
