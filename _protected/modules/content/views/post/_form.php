@@ -20,18 +20,7 @@ use common\widgets\KEditor\KEditor;
 
     <?= $form->field($model, 'intro')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'content')->widget(KEditor::className(),[
-        'properties' => array(
-            'themeType' => 'default',
-            'loadStyleMode'=>false,
-            'uploadJson' => yii\helpers\Url::toRoute('editor-upload'),
-            'fileManagerJson' => yii\helpers\Url::toRoute('editor-manage'),
-            'newlineTag' => 'br',
-            'allowFileManager' => true,
-            'width'=>'100%',
-            'height'=>'350px',
-        ),
-    ]) ?>
+    <?= $form->field($model, 'content')->widget(KEditor::className()) ?>
 
     <?= $form->field($model, 'catalog_link')->dropDownList(array_column(Catalog::find()->asArray()->all(),'catalog_name' ,'id'), ['prompt' => '请选择栏目']) ?>
 
@@ -75,7 +64,7 @@ use common\widgets\KEditor\KEditor;
     echo $form->field($model, 'thumbnail')
         ->widget('trntv\filekit\widget\Upload',[
             'url' => ['post/upload'],
-            'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),  
+            'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
         ]);
     ?>
     <div class="form-group">
