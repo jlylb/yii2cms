@@ -38,16 +38,13 @@ return [
             ],
         ],
         'fileStorage' => [
-            'class' => '\trntv\filekit\Storage',
+            //'class' => '\trntv\filekit\Storage',
+            'class' => '\upload\components\FileStorage',
             'baseUrl' => '@web/data/uploads',
             'filesystem' => [
                 'class' => 'upload\components\LocalFlysystemBuilder',
                 'path' => '@webroot/data/uploads'
             ],
-//            'as log' => [
-//                'class' => 'common\behaviors\FileStorageLogBehavior',
-//                'component' => 'fileStorage'
-//            ]
         ],
     ],
 ];

@@ -2,15 +2,17 @@
 namespace common\widgets\KEditor;
 
 use yii\web\UploadedFile;
-use yii\base\Action;
 use yii\web\Response;
 use yii\base\DynamicModel;
-use yii\helpers\FileHelper;
 
-class KEditorUploadAction extends Action{
-    use EditorTrait;
+class KEditorUploadAction extends BaseAction{
+
 
     public $fileparam='imgFile';
+
+    //上传最大文件
+    public $maxSize;
+
 
     public function init()
     {
@@ -21,53 +23,40 @@ class KEditorUploadAction extends Action{
     public function run()
     {
         $dir=\Yii::$app->getRequest()->get('dir','file');
-		$extArr= array(
-			'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
-			'flash' => array('swf', 'flv'),
-			'media' => array('swf', 'flv', 'mp3', 'wav', 'wma', 'wmv', 'mid', 'avi', 'mpg', 'asf', 'rm', 'rmvb'),
-			'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
-		);
-        if(empty($extArr[$dir])){
+
+		$dirs=$this->getAllowExts();
+
+        if(!$this->checkDirectory($dir,$dirs)){
 			return ['error'=>1,'message'=>'目录名不正确。'];
 		}
-        $result = [];
+
         $uploadedFile = UploadedFile::getInstanceByName($this->fileparam);
-        $date=date('Ymd');
-        $uploadDir=self::getUploadPath().'/'.$dir.'/'.$date;
-        $uploadUrl=self::getUploadUrl().'/'.$dir.'/'.$date;
-        FileHelper::createDirectory($uploadDir);
 
-        //foreach ($uploadedFiles as $uploadedFile) {
-            $output = [];
-            if ($uploadedFile->error === UPLOAD_ERR_OK) {
-                $validationModel = DynamicModel::validateData(['file' => $uploadedFile], []);
-                if (!$validationModel->hasErrors()) {
-                    $filename=date("YmdHis").'_'.rand(10000, 99999);
-                    $ext=$uploadedFile->getExtension();
-                    $allowExt=$extArr[$dir];
-                    if(in_array($ext, $extArr[$dir]) === false){
-                        $output = ['error'=>1,'message'=>"上传文件扩展名是不允许的扩展名。\n只允许".implode(',',$allowExt).'格式。'];
-                    }else{
-                        $uploadfile=$uploadDir.'/'.$filename.'.'.$ext;
-                        $originalurl=$uploadUrl.'/'.$filename.'.'.$ext;
+        if(!$this->checkExt($uploadedFile->getExtension(),$dirs[$dir])){
+            return ['error'=>1,'message'=>"上传文件扩展名是不允许的扩展名。\n只允许".implode(',',$dirs[$dir]).'格式。'];
+        }
 
-                        $uploadedFile->saveAs($uploadfile);
-                        $output = ['error'=>0,'url'=>$originalurl];
-                    }
+        $output = [];
+        if ($uploadedFile->error === UPLOAD_ERR_OK) {
+            $validationModel = DynamicModel::validateData(['file' => $uploadedFile], []);
+            if (!$validationModel->hasErrors()) {
+                $storage=$this->getFileStorage();
+                $storage->directory=$dir;
+                $path = $storage ->save($uploadedFile);
+                $output = ['error'=>0,'url'=>$storage->getUploadUrl() . '/' . $path];
 
-                } else {
-                    $output['error'] = 1;
-                    $output['message'] = $validationModel->errors;
-                }
             } else {
                 $output['error'] = 1;
-                $output['message'] = $this->resolveErrorMessage($uploadedFile->error);
+                $output['message'] = $validationModel->errors;
             }
-
-          //  $result[] = $output;
-       // }
+        } else {
+            $output['error'] = 1;
+            $output['message'] = $this->resolveErrorMessage($uploadedFile->error);
+        }
         return $output;
     }
+
+
 
     protected function resolveErrorMessage($value)
     {

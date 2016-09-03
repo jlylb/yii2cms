@@ -2,14 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: CPR061
- * Date: 2016/9/2
- * Time: 11:45
+ * Date: 2016/9/3
+ * Time: 15:26
  */
+
 namespace common\widgets\KEditor;
 
-use yii;
+use upload\components\FileStorage;
+use yii\di\Instance;
+use yii\base\Action;
 
-Trait EditorTrait{
+class BaseAction  extends Action{
+
+    public $fileStorage = 'fileStorage';
 
     //允许上传的文件后缀
     public function getAllowExts()
@@ -43,5 +48,4 @@ Trait EditorTrait{
         return $fileStorage;
 
     }
-
-}
+} 
