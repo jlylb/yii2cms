@@ -129,24 +129,6 @@ return array (
       '@yii/imagine' => $vendorDir . '/yiisoft/yii2-imagine',
     ),
   ),
-  '2amigos/yii2-gallery-widget' => 
-  array (
-    'name' => '2amigos/yii2-gallery-widget',
-    'version' => '1.0.2.0',
-    'alias' => 
-    array (
-      '@dosamigos/gallery' => $vendorDir . '/2amigos/yii2-gallery-widget/src',
-    ),
-  ),
-  '2amigos/yii2-file-upload-widget' => 
-  array (
-    'name' => '2amigos/yii2-file-upload-widget',
-    'version' => '1.0.4.0',
-    'alias' => 
-    array (
-      '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
-    ),
-  ),
   'yiisoft/yii2-jui' => 
   array (
     'name' => 'yiisoft/yii2-jui',
@@ -172,6 +154,33 @@ return array (
     'alias' => 
     array (
       '@creocoder/taggable' => $vendorDir . '/creocoder/yii2-taggable/src',
+    ),
+  ),
+  'creocoder/yii2-nested-sets' => 
+  array (
+    'name' => 'creocoder/yii2-nested-sets',
+    'version' => '0.9.0.0',
+    'alias' => 
+    array (
+      '@creocoder/nestedsets' => $vendorDir . '/creocoder/yii2-nested-sets/src',
+    ),
+  ),
+  '2amigos/yii2-gallery-widget' => 
+  array (
+    'name' => '2amigos/yii2-gallery-widget',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@dosamigos/gallery' => $vendorDir . '/2amigos/yii2-gallery-widget/src',
+    ),
+  ),
+  '2amigos/yii2-file-upload-widget' => 
+  array (
+    'name' => '2amigos/yii2-file-upload-widget',
+    'version' => '1.0.4.0',
+    'alias' => 
+    array (
+      '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
     ),
   ),
 );

@@ -47,6 +47,7 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'c' => 
         array (
             'creocoder\\taggable\\' => 19,
+            'creocoder\\nestedsets\\' => 21,
             'conquer\\select2\\' => 16,
             'conquer\\helpers\\' => 16,
             'cebe\\markdown\\' => 14,
@@ -137,6 +138,10 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         'creocoder\\taggable\\' => 
         array (
             0 => __DIR__ . '/..' . '/creocoder/yii2-taggable/src',
+        ),
+        'creocoder\\nestedsets\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/creocoder/yii2-nested-sets/src',
         ),
         'conquer\\select2\\' => 
         array (

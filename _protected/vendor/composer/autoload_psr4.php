@@ -24,6 +24,7 @@ return array(
     'dosamigos\\gallery\\' => array($vendorDir . '/2amigos/yii2-gallery-widget/src'),
     'dosamigos\\fileupload\\' => array($vendorDir . '/2amigos/yii2-file-upload-widget/src'),
     'creocoder\\taggable\\' => array($vendorDir . '/creocoder/yii2-taggable/src'),
+    'creocoder\\nestedsets\\' => array($vendorDir . '/creocoder/yii2-nested-sets/src'),
     'conquer\\select2\\' => array($vendorDir . '/conquer/select2'),
     'conquer\\helpers\\' => array($vendorDir . '/conquer/helpers'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
