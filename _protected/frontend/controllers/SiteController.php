@@ -12,6 +12,9 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use content\models\Post;
+use yii\data\ActiveDataProvider; 
+
 
 /**
  * Site controller
@@ -24,22 +27,22 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'only' => ['logout', 'signup'],
+//                'rules' => [
+//                    [
+//                        'actions' => ['signup'],
+//                        'allow' => true,
+//                        'roles' => ['?'],
+//                    ],
+//                    [
+//                        'actions' => ['logout'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -72,7 +75,47 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Post::find();  
+        $dataProvider = new ActiveDataProvider([  
+            'query' => $query,  
+            'pagination' => [  
+                'pageSize' => 15,  
+            ],
+            'sort'=>[
+                'attributes' => [
+                    'create_time',
+                    'update_time',
+                ],
+            'defaultOrder' => [
+                'create_time' => SORT_DESC,
+            ]
+            ],
+        ]);  
+
+		return $this->render('index', [
+			'dataProvider' => $dataProvider,
+		]);
+    }
+	public function actionView($id)
+	{
+        $model=  $this->findModel($id);
+        if($model){
+            $model->updateAllCounters(['view_num'=>1], ['id'=>$id]);
+        }
+        return $this->render('view', [
+			'model' => $model,
+		]);
+	}
+    protected function findModel($id)
+    {
+        if (($model = Post::findOne($id)) !== null) 
+        {
+            return $model;
+        } 
+        else 
+        {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     /**

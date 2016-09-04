@@ -42,11 +42,21 @@ class PostSearch extends Post
     public function search($params)
     {
         $query = Post::find();
+        
+        $query->joinWith('tag')->joinWith('uploadedFiles')->joinWith(['user','catalogLink']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [  
+                'pageSize' => 5,  
+            ],
+            'sort'=>[
+                'defaultOrder' => [
+                    'create_time' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);
@@ -71,10 +81,7 @@ class PostSearch extends Post
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'intro', $this->intro])
-            ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'author', $this->author])
-            ->andFilterWhere(['like', 'tags', $this->tags])
             ->andFilterWhere(['like', 'seo_title', $this->seo_title])
             ->andFilterWhere(['like', 'seo_keywords', $this->seo_keywords])
             ->andFilterWhere(['like', 'seo_desc', $this->seo_desc])

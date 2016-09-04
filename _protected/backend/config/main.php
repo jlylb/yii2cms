@@ -11,6 +11,7 @@ return [
     'language' => 'zh-cn',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
+    'defaultRoute'=>'/content/post/index',
     'bootstrap' => ['log'],
     'modules' => [
         'survey'=>[

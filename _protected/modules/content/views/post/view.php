@@ -29,13 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'uid',
+            'user.username',
             'title',
             'intro:ntext',
             'content:ntext',
-            'catalog_link',
+            'catalogLink.catalog_name',
             'author',
-            'tags',
+            'tagValues',
             'seo_title',
             'seo_keywords',
             'seo_desc',
@@ -46,8 +46,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'focus_num',
             'comment_num',
             'allow_comment',
-           // 'attachments',
-            //'thumbnail',
+            [     
+              'label' => '文章附件',
+              'value' => '',
+            ],
+            [
+              'label' => '文章封面',
+              'value' => ''
+            ],
             'create_time',
             'update_time',
         ],

@@ -8,23 +8,20 @@ $config = [
         ],
         'assetManager' => [
             'bundles' => [
-                // use bootstrap css from CDN
-//                 'yii\bootstrap\BootstrapAsset' => [
-//                     'basePath' => '@webroot',   // do not use file from our server
-//                     'baseUrl' => '@web/themes/zui',
-//                     'css' => [
-//                         'css/zui.min.css',
-//                         ]
-//                 ],
-                // use bootstrap js from CDN
-//                 'yii\bootstrap\BootstrapPluginAsset' => [
-//                     'basePath' => '@webroot',
-//                     'baseUrl' =>  '@web/themes/zui',   // do not use file from our server
-//                     'js' => [
-//                         'js/zui.js'
-//                         ]
-//                 ],
-                // use jquery from CDN
+                 'yii\bootstrap\BootstrapAsset' => [
+                     'basePath' => '@webroot',   // do not use file from our server
+                     'baseUrl' => '@web/themes/zui',
+                     'css' => [
+                         'css/zui.min.css',
+                         ]
+                 ],
+                 'yii\bootstrap\BootstrapPluginAsset' => [
+                     'basePath' => '@webroot',
+                     'baseUrl' =>  '@web/themes/zui',   // do not use file from our server
+                     'js' => [
+                         'js/zui.js'
+                         ]
+                 ],
                 'yii\web\JqueryAsset' => [
                     'basePath' => '@webroot',
                     'baseUrl' => '@web/themes/zui',   // do not use file from our server

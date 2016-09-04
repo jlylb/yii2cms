@@ -206,10 +206,7 @@ class Post extends \common\base\BaseModel
 
     public function getUploadedFiles()
     {
-        return $this->hasMany(Attachment::className(),['entity_id'=>'id'])
-        ->where([
-            "entity_model" => ltrim(get_class($this),"\\"),
-        ]);
+        return $this->hasMany(Attachment::className(),['entity_id'=>'id'])->onCondition(["entity_model" => ltrim(get_class($this),"\\")]);
     }
     public function getTag()
     {
