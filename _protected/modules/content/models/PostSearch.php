@@ -43,7 +43,7 @@ class PostSearch extends Post
     {
         $query = Post::find();
         
-        $query->joinWith('tag')->joinWith('uploadedFiles')->joinWith(['user','catalogLink']);
+        $query->joinWith('uploadedFiles')->joinWith(['user','catalogLink']);
 
         // add conditions that should always apply here
 

@@ -9,6 +9,20 @@ use yii\widgets\DetailView;
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Posts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$attachments=$model->attachments;
+$thumbnail=$model->thumbnail;
+
+function formatAttachments($arr){
+    if(!$arr){
+        return '没有附近';
+    }
+    $str='';
+    foreach ($arr as $v){
+        $str.=sprintf('<p>%s</p>',  Html::a(basename($v['path']),$v['base_url'].$v['path'],['target'=>'_blank']));
+    }
+    return $str;
+}
 ?>
 <div class="post-view">
 
@@ -32,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'user.username',
             'title',
             'intro:ntext',
-            'content:ntext',
+            'content:html',
             'catalogLink.catalog_name',
             'author',
             'tagValues',
@@ -48,11 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'allow_comment',
             [     
               'label' => '文章附件',
-              'value' => '',
+              'value' => formatAttachments($attachments),
+                'format'=>'html'
             ],
             [
               'label' => '文章封面',
-              'value' => ''
+              'value' =>$thumbnail? Html::img($thumbnail['base_url'].$thumbnail['path']):"没有封面",
+               'format'=>'html'
             ],
             'create_time',
             'update_time',
