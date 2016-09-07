@@ -40,11 +40,19 @@ $this->params['breadcrumbs'][] = ['label' => (string)$model->title];
             发布时间：<?= $model->create_time ?> &nbsp;点击数：<?= $model->view_num ?>
           </p>
           <p class="text-important">本文版权所有归<a href="###">@<?=$model->author?></a></p>
-          <ul class="pager pager-justify">
+<!--          <ul class="pager pager-justify">
             <li class="previous"><a href="#"><i class="icon-arrow-left"></i> 论烧火煮饭</a></li>
-            <li><a href="#"><i class="icon-list-ul"></i> 目录</a></li>
+
             <li class="next disabled"><a href="#">没有下一篇 <i class="icon-arrow-right"></i></a></li>
-          </ul>
+          </ul>-->
+          <?php
+          use common\widgets\PrevNext;
+          
+          echo PrevNext::widget([
+              'model'=>$model
+          ]);
+          
+          ?>
         </footer>
       </article>
     </div>
