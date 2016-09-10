@@ -12,9 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a(Yii::t('app', 'Create Catalog'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -23,9 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'pid',
+            [
+                'attribute'=>'pid',
+                'label'=>'上级目录',
+                'value'=>function($model){
+                    return $model->parentTagName?$model->parentTagName->catalog_name:'根目录';
+                }
+            ],
             'catalog_english',
             'catalog_name',
             'sort_num',

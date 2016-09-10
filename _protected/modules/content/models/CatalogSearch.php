@@ -41,7 +41,7 @@ class CatalogSearch extends Catalog
      */
     public function search($params)
     {
-        $query = Catalog::find();
+        $query = Catalog::find()->joinWith('parentTagName');
 
         // add conditions that should always apply here
 

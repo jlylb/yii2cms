@@ -86,4 +86,9 @@ class Catalog extends \yii\db\ActiveRecord
     {
         return new CatalogQuery(get_called_class());
     }
+    
+    public  function getParentTagName()
+    {
+        return $this->hasOne(self::className(), ['id'=>'pid'])->from(['p' => self::tableName()]);
+    }
 }

@@ -52,5 +52,5 @@ class Tags extends \yii\db\ActiveRecord
     public static function find()
     {
         return new TagsQuery(get_called_class());
-    }
+    }    
 }

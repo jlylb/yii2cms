@@ -10,11 +10,6 @@ $this->title = 'Stitle';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="stitle-index">
-    <div class="page-header">
-            <h1>
-                <?= Html::encode($this->title) ?>
-            </h1>
-    </div>
     <?= Html::a('Create Stitle', ['create'], ['class' => 'btn btn-success']) ?>
     <?php
 

@@ -109,3 +109,6 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+.list-group-item.active a{
+    color: #fff;
+}

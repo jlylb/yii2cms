@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="soptions-create">
 <?php if($id){?>
-    <h1>问卷:<?= Html::encode($stitle) ?></h1>
+   
 <?php }?>
     <?= $this->render('_form', [
         'model' => $model,

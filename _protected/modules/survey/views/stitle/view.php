@@ -9,9 +9,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Stitles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="stitle-view">
-    <div class="page-header">
-        <h1><?= Html::encode($this->title) ?></h1>
-    </div>
 
     <?php
     echo DetailView::widget([
