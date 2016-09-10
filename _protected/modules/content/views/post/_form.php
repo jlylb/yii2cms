@@ -6,6 +6,7 @@ use yii\web\JsExpression;
 use content\models\Catalog;
 use yii\helpers\Url;
 use common\widgets\KEditor\KEditor;
+use kartik\select2\Select2;
 /* @var $this yii\web\View */
 /* @var $model content\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -45,7 +46,32 @@ use common\widgets\KEditor\KEditor;
 <!--    --><?//= $form->field($model, 'focus_num')->textInput(['maxlength' => true]) ?>
 <!---->
 <!--    --><?//= $form->field($model, 'comment_num')->textInput(['maxlength' => true]) ?>
+    <?php
+        echo $form->field($model, 'survey_id')->widget(Select2::classname(), [
+            'initValueText'=>$model->stitle?$model->stitle->title:'',
+            'language' => 'zh-cn',
+            'options' => ['placeholder' => '请选择一个问卷'],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'ajax'=>[
+                    'url'=>Url::to(['/survey/soptions/titles']),
+                    'processResults'=>new JsExpression(' function (data) {
+                    return {
+                      results: data
+                    };
+                }'),
+                'data'=> new JsExpression('function (params) {
+                    var query = {
+                      q: params.term,
+                      page: params.page
+                    }
+                    return query;
+                    }'),
+                ],
 
+            ],
+        ]);
+    ?>
     <?= $form->field($model, 'allow_comment')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ]) ?>

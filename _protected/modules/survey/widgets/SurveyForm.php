@@ -35,6 +35,7 @@ class SurveyForm extends Widget{
         parent::init();
         echo Html::beginTag('div');
         ActiveForm::begin(['id'=>$this->formId,'action'=>  $this->url]);
+        echo Html::hiddenInput('survey_id', $this->surveyId);
     }
 
     public function run()

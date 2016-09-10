@@ -5,6 +5,7 @@ namespace content\models;
 use Yii;
 use upload\models\Attachment;
 use creocoder\taggable\TaggableBehavior;
+use survey\models\Stitle;
 
 class Post extends \common\base\BaseModel
 {
@@ -83,7 +84,7 @@ class Post extends \common\base\BaseModel
     {
         return [
             [['title', 'content', 'catalog_link'], 'required'],
-            [['uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num'], 'integer'],
+            [['uid', 'catalog_link', 'view_num', 'favorite_num', 'focus_num', 'comment_num','survey_id'], 'integer'],
             [['intro', 'content', 'allow_comment', 'status'], 'string'],
             [['create_time', 'update_time'], 'safe'],
             [['title', 'copy_from'], 'string', 'max' => 100],
@@ -100,7 +101,7 @@ class Post extends \common\base\BaseModel
                 ]
             ],
             ['copy_url', 'url'],
-            [['attachments', 'thumbnail','tagValues'], 'safe']
+            [['attachments', 'thumbnail','tagValues','survey_id'], 'safe']
         ];
     }
 
@@ -133,6 +134,7 @@ class Post extends \common\base\BaseModel
             'create_time' => '创建时间',
             'update_time' => '更新时间',
             'tagValues' => '文章标签',
+            'survey_id' => '关联问卷',
         ];
     }
 
@@ -212,5 +214,10 @@ class Post extends \common\base\BaseModel
     {
         return $this->hasMany(Tags::className(), ['id' => 'tag_id'])
             ->viaTable('{{%post_tag}}', ['post_id' => 'id']);
+    }
+    public function getStitle() {
+        return $this->hasOne(Stitle::className(), [
+            'id'=>'survey_id'
+        ]);        
     }
 }

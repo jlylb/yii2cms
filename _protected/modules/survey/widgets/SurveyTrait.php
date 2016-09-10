@@ -36,7 +36,7 @@ Trait SurveyTrait{
                         $progressClass='progress-bar-'.$color;
                         $mark=Html::tag('span',$keys[$kk],['class'=>'label '.$labelClass]);
                         $label=Html::tag('label',$vv['title'],['class'=>'control-label']);
-                        $percent=  sprintf('%.2f',$vv['num']*100/$total);
+                        $percent=  sprintf('%.2f',$total?$vv['num']*100/$total:0);
                         $question=\yii\bootstrap\Progress::widget([
                             'percent' => $percent,
                             'label' => $percent.'%',
@@ -67,7 +67,7 @@ Trait SurveyTrait{
             $progressClass='progress-bar-'.$color;
             $mark=Html::tag('span',$keys[$kk],['class'=>'label '.$labelClass]);
             $label=Html::tag('label',$vv['title'],['class'=>'control-label']);
-            $percent=  sprintf('%.2f',$vv['num']*100/$total);
+            $percent=  sprintf('%.2f',$total?$vv['num']*100/$total:0);
             $question=\yii\bootstrap\Progress::widget([
                 'percent' => $percent,
                 'label' => $percent.'%',

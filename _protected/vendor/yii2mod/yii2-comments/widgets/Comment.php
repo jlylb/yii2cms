@@ -90,7 +90,7 @@ class Comment extends Widget
             $this->pjaxContainerId = 'comment-pjax-container-' . $this->getId();
         }
 
-        $this->entity = hash('crc32', get_class($this->model));
+        $this->entity = ltrim(get_class($this->model),'\\');
         $this->entityId = $this->model->{$this->entityIdAttribute};
 
         if (empty($this->entityId)) {

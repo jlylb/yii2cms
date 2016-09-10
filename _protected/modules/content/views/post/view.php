@@ -15,7 +15,7 @@ $thumbnail=$model->thumbnail;
 
 function formatAttachments($arr){
     if(!$arr){
-        return '没有附近';
+        return '没有附件';
     }
     $str='';
     foreach ($arr as $v){
@@ -65,7 +65,7 @@ function formatAttachments($arr){
             ],
             [
               'label' => '文章封面',
-              'value' =>$thumbnail? Html::img($thumbnail['base_url'].$thumbnail['path']):"没有封面",
+              'value' =>$thumbnail? Html::img($thumbnail['base_url'].'/'.$thumbnail['path']):"没有封面",
                'format'=>'html'
             ],
             'create_time',

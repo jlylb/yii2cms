@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
-
+use survey\widgets\SurveyForm;
+use survey\widgets\SurveyResult;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
@@ -57,6 +59,18 @@ $this->params['breadcrumbs'][] = ['label' => (string)$model->title];
       </article>
     </div>
   </article>
+</section>
+<section>
+<article>
+    <?= SurveyForm::widget([
+        'surveyId'=>$model->survey_id,
+        'formId'=>'form-options',
+        'url'=>Url::to(['site/vote']),
+    ])?>
+    <?= SurveyResult::widget([
+      //  'surveyId'=>$model->survey_id,
+    ])?>
+</article>
 </section>
 <?php echo \yii2mod\comments\widgets\Comment::widget([
     'model' => $model,

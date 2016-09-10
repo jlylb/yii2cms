@@ -75,7 +75,7 @@ class Stitle extends \yii\db\ActiveRecord
          return $this->hasMany(Soptions::className(), ['sid' => 'id']);
     }
     
-    public function getOptionsItems() {
+    public function getItems() {
         return $this->hasMany(SoptionsItem::className(), [
             'option_id'=>'id'
         ]);        

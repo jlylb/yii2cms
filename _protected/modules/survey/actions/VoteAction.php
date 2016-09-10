@@ -20,7 +20,7 @@ class VoteAction extends  Action{
     public function run()
     {
         $post=Yii::$app->request->post('options',[]);
-
+        $sid=Yii::$app->request->post('survey_id',0);
         Yii::$app->response->format=Response::FORMAT_JSON;
         //var_dump($post);
         
@@ -28,7 +28,7 @@ class VoteAction extends  Action{
             return ['message'=>'投票失败','status'=>0];
         }
         $smodel= new StitleSearch;
-        $re=$smodel->searchOptions(6);
+        $re=$smodel->searchOptions($sid);
         if(!$this->validateVote($re,$post)){
             return ['message'=>'请参加全部投票后再提交','status'=>0];
         }
@@ -38,7 +38,7 @@ class VoteAction extends  Action{
         
         $model->updateAllCounters(['num'=>1], ['in','id',$ids]);
 
-        return ['message'=>$this->_formatView($re),'status'=>1];
+        return ['message'=>$this->_formatView($smodel->searchOptions($sid)),'status'=>1];
     }
 
     protected function findModel($id)

@@ -33,7 +33,7 @@ class SoptionsController extends Controller
     {
         return [
             'vote'=>[
-                'class'=>'backend\modules\survey\actions\VoteAction',
+                'class'=>'survey\actions\VoteAction',
             ],
             'ajax' => [
                 'class' => Select2Action::className(),

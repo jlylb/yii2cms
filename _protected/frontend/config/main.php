@@ -15,6 +15,7 @@ return [
     'modules' => [
         'comment' => [
             'class' => 'yii2mod\comments\Module',
+            'commentModelClass'=>'common\models\Comment'
         ],
     ],
     'components' => [
