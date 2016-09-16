@@ -64,8 +64,9 @@ class MenuController extends Controller
     public function actionCreate()
     {
         $model = new Menu(['name'=>'yahoo']);
-       // $model->makeRoot();
+        $model->makeRoot();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
