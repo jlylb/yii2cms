@@ -36,7 +36,9 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         ),
         'k' => 
         array (
+            'kartik\\tree\\' => 12,
             'kartik\\select2\\' => 15,
+            'kartik\\form\\' => 12,
             'kartik\\base\\' => 12,
         ),
         'd' => 
@@ -119,9 +121,17 @@ class ComposerStaticInit2c9500ca8852e9909bf9e05566a4136a
         array (
             0 => __DIR__ . '/..' . '/rmrevin/yii2-fontawesome',
         ),
+        'kartik\\tree\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-tree-manager',
+        ),
         'kartik\\select2\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-select2',
+        ),
+        'kartik\\form\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-activeform',
         ),
         'kartik\\base\\' => 
         array (
