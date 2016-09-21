@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~\Desktop\vim\formatBlock.vim.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="vim">
+<meta name="settings" content="number_lines,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="solarized">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #839496; background-color: #002b36; }
+body { font-family: monospace; color: #839496; background-color: #002b36; }
+* { font-size: 1em; }
+.vimCommand { color: #b58900; }
+.Constant { color: #2aa198; }
+.Normal { color: #839496; background-color: #002b36; padding-bottom: 1px; }
+.Type { color: #b58900; }
+.Identifier { color: #268bd2; }
+.PreProc { color: #cb4b16; }
+.LineNr { }
+.Statement { color: #719e07; }
+.Comment { color: #586e75; font-style: italic; }
+.Special { color: #dc322f; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="Comment">&quot;_*_coding:utf-8_*_</span>
+<span id="L2" class="LineNr"> 2 </span><span class="vimCommand">function</span>! Foo<span class="Special">()</span>
+<span id="L3" class="LineNr"> 3 </span><span class="Comment">python &lt;&lt; EOF</span>
+<span id="L4" class="LineNr"> 4 </span><span class="Statement">class</span> <span class="Type">Foo_demo</span>:
+<span id="L5" class="LineNr"> 5 </span>    <span class="Statement">def</span> <span class="Identifier">__init__</span><span class="Normal">(</span><span class="Identifier">self</span><span class="Normal">)</span>:
+<span id="L6" class="LineNr"> 6 </span>        <span class="Statement">print</span> <span class="Constant">'Foo_demo init'</span>
+<span id="L7" class="LineNr"> 7 </span>Foo_demo()
+<span id="L8" class="LineNr"> 8 </span><span class="Comment">EOF</span>
+<span id="L9" class="LineNr"> 9 </span><span class="vimCommand">endfunction</span>
+<span id="L10" class="LineNr">10 </span><span class="vimCommand">function</span>! ShowInfo<span class="Special">()</span>
+<span id="L11" class="LineNr">11 </span><span class="Comment">python &lt;&lt;EOF</span>
+<span id="L12" class="LineNr">12 </span><span class="PreProc">import</span> vim
+<span id="L13" class="LineNr">13 </span><span class="Statement">for</span> b <span class="Statement">in</span> vim<span class="Normal">.</span>current<span class="Normal">.</span>buffer:
+<span id="L14" class="LineNr">14 </span>    <span class="Statement">print</span> b
+<span id="L15" class="LineNr">15 </span><span class="Statement">print</span> vim<span class="Normal">.</span>current<span class="Normal">.</span>range
+<span id="L16" class="LineNr">16 </span><span class="Comment">EOF</span>
+<span id="L17" class="LineNr">17 </span><span class="vimCommand">endfunction</span>
+<span id="L18" class="LineNr">18 </span><span class="vimCommand">function</span>! ShowContent<span class="Special">()</span>
+<span id="L19" class="LineNr">19 </span><span class="Comment">python &lt;&lt;EOF</span>
+<span id="L20" class="LineNr">20 </span><span class="PreProc">import</span> vim
+<span id="L21" class="LineNr">21 </span>b <span class="Statement">=</span> vim<span class="Normal">.</span>current<span class="Normal">.</span>buffer
+<span id="L22" class="LineNr">22 </span><span class="Statement">print</span> b[<span class="Constant">26</span>:<span class="Constant">30</span>]
+<span id="L23" class="LineNr">23 </span><span class="Statement">print</span> vim<span class="Normal">.</span>current<span class="Normal">.</span>range
+<span id="L24" class="LineNr">24 </span><span class="Comment">EOF</span>
+<span id="L25" class="LineNr">25 </span><span class="vimCommand">endfunction</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
