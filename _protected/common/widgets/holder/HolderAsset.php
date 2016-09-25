@@ -7,7 +7,7 @@ use yii\web\View;
 
 class HolderAsset extends AssetBundle
 {
-    public $sourcePath = '@common/widget/holder/assets';
+    public $sourcePath = '@common/widgets/holder/assets';
 //    public $basePath = '@webroot';
 //    public $baseUrl = '@themes';
     
