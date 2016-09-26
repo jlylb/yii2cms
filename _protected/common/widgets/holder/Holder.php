@@ -22,30 +22,14 @@ use yii\web\JsExpression;
  *
  * */
 class Holder extends \yii\base\Widget
-{
-    public $theme=false;//default sky, vine, lava, gray, industrial, and social
-    
-    public $random=false;
-    
-    public $bg=false;
-    
-    public $fg=false;
-    
-    public $text=false;
-    
-    public $size=[100,100];
-    
-    public $font=false;
-    
-    public $align=false;
-    
-    public $outline=false;
-    
-    public $lineWrap=false;
-    
+{    
     public $id;
     
     public $class='';
+    
+    public $options=[];
+    
+    public $size=[100,100];
     
     
     
@@ -55,8 +39,8 @@ class Holder extends \yii\base\Widget
         if(empty($this->id)){
             $this->id=  $this->getId();
         }
-        if($this->text){
-            $this->text= Html::encode($this->text);
+        if(isset($this->options['text'])){
+            $this->options['text']= Html::encode($this->options['text']);
         }
     }
     
@@ -74,18 +58,18 @@ class Holder extends \yii\base\Widget
     
     public function generateSrc()
     {
-        $class=New \ReflectionClass($this);
-        $prop=$class->getProperties(\ReflectionProperty::IS_PUBLIC);
-//        \yii::trace($prop);
-//        \yii::trace(__CLASS__);
-        $params=[];
-        foreach ($prop as $v) {
-            if($v->class==__CLASS__){
-                $params[$v->getName()]=$v->getValue($this);
-            }
-        }
-        unset($params['id'],$params['size'],$params['class']);
-        $paramStr=http_build_query(array_filter($params));
+//        $class=New \ReflectionClass($this);
+//        $prop=$class->getProperties(\ReflectionProperty::IS_PUBLIC);
+////        \yii::trace($prop);
+////        \yii::trace(__CLASS__);
+//        $params=[];
+//        foreach ($prop as $v) {
+//            if($v->class==__CLASS__){
+//                $params[$v->getName()]=$v->getValue($this);
+//            }
+//        }
+//        unset($params['id'],$params['size'],$params['class']);
+        $paramStr=http_build_query(array_filter($this->options));
         $src='holder.js/'.implode('x', $this->size).($paramStr?'?'.$paramStr:'');
         return $src;        
     }

@@ -1,41 +1,42 @@
 <?php
 
-namespace content\controllers;
+namespace widget\controllers;
 
 use Yii;
-use common\models\Menu;
-use common\models\MenuSearch;
+use widget\models\WidgetCarousel;
+use widget\models\WidgetCarouselItem;
+use widget\models\WidgetCarouselItemSearch;
+use widget\models\WidgetCarouselSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
- * MenuController implements the CRUD actions for Menu model.
+ * WidgetCarouselController implements the CRUD actions for WidgetCarousel model.
  */
-class MenuController extends Controller
+class WidgetCarouselController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['post']
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all Menu models.
+     * Lists all WidgetCarousel models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new MenuSearch();
+        $searchModel = new WidgetCarouselSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -44,30 +45,18 @@ class MenuController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Menu model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
-     * Creates a new Menu model.
+     * Creates a new WidgetCarousel model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Menu(['name'=>'yahoo']);
-        $model->makeRoot();
+        $model = new WidgetCarousel();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -76,7 +65,7 @@ class MenuController extends Controller
     }
 
     /**
-     * Updates an existing Menu model.
+     * Updates an existing WidgetCarousel model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,17 +74,22 @@ class MenuController extends Controller
     {
         $model = $this->findModel($id);
 
+        $searchModel = new WidgetCarouselItemSearch();
+        $carouselItemsProvider = $searchModel->search([]);
+        $carouselItemsProvider->query->andWhere(['carousel_id'=>$model->id]);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'carouselItemsProvider'=>$carouselItemsProvider
             ]);
         }
     }
 
     /**
-     * Deletes an existing Menu model.
+     * Deletes an existing WidgetCarousel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -108,15 +102,15 @@ class MenuController extends Controller
     }
 
     /**
-     * Finds the Menu model based on its primary key value.
+     * Finds the WidgetCarousel model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Menu the loaded model
+     * @return WidgetCarousel the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Menu::findOne($id)) !== null) {
+        if (($model = WidgetCarousel::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

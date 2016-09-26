@@ -16,6 +16,7 @@ use yii\base\InvalidConfigException;
 use survey\models\StitleSearch;
 use yii\widgets\ActiveForm; 
 use yii\helpers\Url;
+use survey\widgets\SurveyResult;
 
 class SurveyForm extends Widget{
 
@@ -40,6 +41,12 @@ class SurveyForm extends Widget{
 
     public function run()
     {
+        $cookies=\Yii::$app->request->cookies;
+        if ($cookies->has('is_voted')){
+            echo SurveyResult::widget([ 'surveyId'=>$this->surveyId,]);
+            ActiveForm::end(); 
+            return;
+        }
         $model= new StitleSearch;
         $re=$model->searchOptions($this->surveyId);
         if(!$re){
@@ -48,7 +55,7 @@ class SurveyForm extends Widget{
         }        
         $this->registerJs();
         echo $this->_formatQuestion($re);
-        echo Html::tag('div', Html::submitButton('Create' , ['class' =>  'btn btn-success' ,'id'=>'btn-ok']), ['class'=>"form-group"]);
+        echo Html::tag('div', Html::submitButton('投票' , ['class' =>  'btn btn-success' ,'id'=>'btn-ok']), ['class'=>"form-group"]);
         ActiveForm::end();
         echo Html::endTag('div');
     }

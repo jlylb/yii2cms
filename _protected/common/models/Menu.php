@@ -20,6 +20,7 @@ class Menu extends \yii\db\ActiveRecord
         return [
             'tree' => [
                 'class' => NestedSetsBehavior::className(),
+                'treeAttribute'=>'tree',
             ],
         ];
     }

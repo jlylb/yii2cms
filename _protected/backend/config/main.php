@@ -29,6 +29,10 @@ return [
         'upload' => [
             'class' => 'upload\Upload',
             'defaultRoute'=>'attachment/index',
+        ],        
+        'widget' => [
+            'class' => 'widget\Widget',
+            'defaultRoute'=>'widget-carousel/index',
         ],
     ],
     'components' => [

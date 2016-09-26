@@ -44,6 +44,7 @@ AppAsset::register($this);
         ['label' => '评论', 'url' => ['/comment']],
         ['label' => '问卷', 'url' => ['/survey']],
         ['label' => '附件', 'url' => ['/upload']],
+        ['label' => '部件管理', 'url' => ['/widget']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -88,7 +89,11 @@ AppAsset::register($this);
                            ['label' => '附件列表', 'url' => ['/upload/attachment/index']],
                         ];
                     }
-
+                    if($this->context->module->id=='widget'){
+                        $menuItems=  [
+                           ['label' => '部件列表', 'url' => ['/widget/widget-carousel/index']],
+                        ];
+                    }
                     echo Menu::widget([
                        'items' => $menuItems,
                        'options'=>['class'=>'list-group'],

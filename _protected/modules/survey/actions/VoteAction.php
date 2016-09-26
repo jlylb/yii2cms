@@ -32,11 +32,21 @@ class VoteAction extends  Action{
         if(!$this->validateVote($re,$post)){
             return ['message'=>'请参加全部投票后再提交','status'=>0];
         }
+        $cookies=Yii::$app->request->cookies;
+        if ($cookies->has('is_voted')){
+            return ['message'=>'已经投过票了','status'=>0];
+        }
         $ids=array_reduce($post, 'array_merge',[]);
         
         $model=new SoptionsItem;
         
         $model->updateAllCounters(['num'=>1], ['in','id',$ids]);
+        
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+            'name' => 'is_voted',
+            'value' => true,
+        ]));
 
         return ['message'=>$this->_formatView($smodel->searchOptions($sid)),'status'=>1];
     }
