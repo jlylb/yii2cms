@@ -195,7 +195,7 @@ return array (
   'kartik-v/yii2-tree-manager' => 
   array (
     'name' => 'kartik-v/yii2-tree-manager',
-    'version' => '9999999-dev',
+    'version' => '1.0.5.0',
     'alias' => 
     array (
       '@kartik/tree' => $vendorDir . '/kartik-v/yii2-tree-manager',

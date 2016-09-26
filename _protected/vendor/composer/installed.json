@@ -2085,31 +2085,26 @@
     },
     {
         "name": "kartik-v/yii2-tree-manager",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/kartik-v/yii2-tree-manager.git",
-            "reference": "f911e3eecc95e84b7ca3851d35d976dcabf8f4de"
+            "reference": "0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89"
         },
         "dist": {
             "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/kartik-v/yii2-tree-manager/f911e3eecc95e84b7ca3851d35d976dcabf8f4de.zip",
-            "reference": "f911e3eecc95e84b7ca3851d35d976dcabf8f4de",
+            "url": "https://packagist.phpcomposer.com/files/kartik-v/yii2-tree-manager/0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89.zip",
+            "reference": "0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89",
             "shasum": ""
         },
         "require": {
             "creocoder/yii2-nested-sets": "~0.9",
             "kartik-v/yii2-widget-activeform": "~1.4"
         },
-        "time": "2016-07-12 16:59:52",
+        "time": "2015-12-27 18:48:51",
         "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "kartik\\tree\\": ""

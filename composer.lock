@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ddec0653e3f69ff8fd229741d90b7833",
-    "content-hash": "327c448bde3732e771b4c040d117fff6",
+    "hash": "caec6c465c9371eabe59fbfb50035457",
+    "content-hash": "81c460ba0025e8d2952bc012ccd64d1d",
     "packages": [
         {
             "name": "bizley/migration",
@@ -529,16 +529,16 @@
         },
         {
             "name": "kartik-v/yii2-tree-manager",
-            "version": "dev-master",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-tree-manager.git",
-                "reference": "f911e3eecc95e84b7ca3851d35d976dcabf8f4de"
+                "reference": "0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/kartik-v/yii2-tree-manager/f911e3eecc95e84b7ca3851d35d976dcabf8f4de.zip",
-                "reference": "f911e3eecc95e84b7ca3851d35d976dcabf8f4de",
+                "url": "https://packagist.phpcomposer.com/files/kartik-v/yii2-tree-manager/0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89.zip",
+                "reference": "0fd506de3ef0c73ec8a3f0c9267ed8353f5e9f89",
                 "shasum": ""
             },
             "require": {
@@ -546,11 +546,6 @@
                 "kartik-v/yii2-widget-activeform": "~1.4"
             },
             "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "kartik\\tree\\": ""
@@ -581,7 +576,7 @@
                 "tree",
                 "treeview"
             ],
-            "time": "2016-07-12 16:59:52"
+            "time": "2015-12-27 18:48:51"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",
@@ -2066,9 +2061,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kartik-v/yii2-tree-manager": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
